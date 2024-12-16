@@ -9,6 +9,16 @@
       };
       notify_on_error = true;
 
+      formatters = {
+        yamlfmt = {
+          prepend_args = [
+            "-formatter"
+            "include_document_start=true"
+          ];
+        };
+
+      };
+
       formatters_by_ft = {
         liquidsoap = [ "liquidsoap-prettier" ];
         html = [
@@ -61,7 +71,6 @@
           ]
         ];
         yaml = [
-          "yamllint"
           "yamlfmt"
         ];
         terragrunt = [
