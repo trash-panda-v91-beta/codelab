@@ -3,6 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    blink-cmp = {
+      url = "github:saghen/blink.cmp";
+    };
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -41,6 +44,9 @@
           nvim = nixvim'.makeNixvimWithModule {
             inherit pkgs;
             module = ./config;
+            extraSpecialArgs = {
+              inherit inputs system;
+            };
           };
         in
         {

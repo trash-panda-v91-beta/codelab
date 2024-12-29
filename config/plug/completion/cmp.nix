@@ -1,4 +1,4 @@
-_:
+{ config, lib, ... }:
 let
   get_bufnrs.__raw = ''
     function()
@@ -137,7 +137,7 @@ in
       enable = true;
 
       cmp = {
-        enable = true;
+        enable = false;
 
         menu = {
           buffer = "";
@@ -157,7 +157,7 @@ in
       };
     };
   };
-  keymaps = [
+  keymaps = lib.mkIf config.plugins.cmp.enable [
     {
       mode = [
         "i"

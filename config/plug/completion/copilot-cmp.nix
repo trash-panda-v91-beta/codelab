@@ -1,5 +1,6 @@
+{ lib, config, ... }:
 {
-  plugins.copilot-cmp = {
+  plugins.copilot-cmp = lib.mkIf config.plugins.cmp.enable {
     enable = true;
   };
   plugins.copilot-lua = {
@@ -12,7 +13,7 @@
     };
   };
 
-  extraConfigLua = ''
+  extraConfigLua = lib.mkIf config.plugins.cmp.enable ''
     require("copilot").setup({
       suggestion = { enabled = false },
       panel = { enabled = false },

@@ -9,6 +9,8 @@
     ./plug/colorscheme/colorscheme.nix
 
     ./plug/completion/avante.nix
+    ./plug/completion/blink.nix
+    ./plug/completion/blink-compat.nix
     ./plug/completion/cmp.nix
     ./plug/completion/copilot-cmp.nix
     ./plug/completion/schemastore.nix
