@@ -19,7 +19,7 @@
 
     {
       mode = "n";
-      key = "<leader>/";
+      key = "<leader>fe";
       action = "<cmd>nohl<CR>";
       options = {
         desc = "Clear search";
