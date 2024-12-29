@@ -1,4 +1,9 @@
 {
+  lib,
+  pkgs,
+  ...
+}:
+{
   plugins = {
     lsp-format = {
       enable = true;
@@ -28,19 +33,24 @@
         dockerls = {
           enable = true;
         };
-        # nil-ls = {
-        #   enable = true;
-        # };
         nixd = {
           enable = true;
-          extraOptions = {
-            nixos = {
-              expr = "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.aurelionite.options";
+          settings =
+            let
+              flake = ''(builtins.getFlake "github:elythh/flake)""'';
+            in
+            {
+              nixpkgs = {
+                expr = "import ${flake}.inputs.nixpkgs { }";
+              };
+              formatting = {
+                command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+              };
+              options = {
+                nixos.expr = ''${flake}.nixosConfigurations.grovetender.options'';
+                nixvim.expr = ''${flake}.packages.${pkgs.system}.nvim.options'';
+              };
             };
-            home_manager = {
-              expr = "(builtins.getFlake \"/etc/nixos\").homeConfigurations.aurelionite.options";
-            };
-          };
         };
         markdown_oxide = {
           enable = true;
