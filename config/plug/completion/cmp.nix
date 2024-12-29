@@ -17,7 +17,7 @@ in
 {
   plugins = {
     cmp = {
-      enable = true;
+      enable = false;
       autoEnableSources = true;
       settings = {
         mapping = {
@@ -137,7 +137,7 @@ in
       enable = true;
 
       cmp = {
-        enable = false;
+        enable = true;
 
         menu = {
           buffer = "";
