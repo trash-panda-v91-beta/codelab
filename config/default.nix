@@ -51,6 +51,7 @@
     ./plug/utils/comment-box.nix
     ./plug/utils/comment.nix
     ./plug/utils/helm.nix
+    ./plug/utils/lz-n.nix
     ./plug/utils/markview.nix
     ./plug/utils/obsidian.nix
     ./plug/utils/spectre.nix
