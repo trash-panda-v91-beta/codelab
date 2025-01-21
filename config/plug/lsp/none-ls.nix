@@ -31,7 +31,7 @@
         };
         stylua.enable = true;
         yamlfmt = {
-          enable = true;
+          enable = false;
         };
       };
     };
