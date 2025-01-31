@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  extraPackages = with pkgs; [ yamlfmt ];
+  extraPackages = with pkgs; [
+    shfmt
+    yamlfmt
+  ];
   plugins.conform-nvim = {
     enable = true;
     settings = {
@@ -12,6 +15,9 @@
       notify_on_error = true;
 
       formatters_by_ft = {
+        bash = [
+          "shfmt"
+        ];
         liquidsoap = [ "liquidsoap-prettier" ];
         html = [
           [
