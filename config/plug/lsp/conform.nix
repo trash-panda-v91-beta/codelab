@@ -5,6 +5,12 @@
     yamlfmt
   ];
   plugins.conform-nvim = {
+    lazyLoad.settings = {
+      cmd = [
+        "ConformInfo"
+      ];
+      event = [ "BufWrite" ];
+    };
     enable = true;
     settings = {
 
