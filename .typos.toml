@@ -1,0 +1,2 @@
+[default]
+extend-ignore-identifiers-re = ["fo", "yoru", "[N-n]oice"]
