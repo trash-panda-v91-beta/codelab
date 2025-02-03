@@ -37,7 +37,8 @@
           enable = true;
           settings =
             let
-              flake = ''(builtins.getFlake "github:elythh/flake)""'';
+              flake = ''(builtins.getFlake "github:aka-raccoon/spacewim)""'';
+              flakeNixvim = ''(builtins.getFlake "github:aka-raccoon/spacewim)""'';
             in
             {
               nixpkgs = {
@@ -48,7 +49,7 @@
               };
               options = {
                 nixos.expr = ''${flake}.nixosConfigurations.grovetender.options'';
-                nixvim.expr = ''${flake}.packages.${pkgs.system}.nvim.options'';
+                nixvim.expr = ''${flakeNixvim}.packages.${pkgs.system}.default.options'';
               };
             };
         };
