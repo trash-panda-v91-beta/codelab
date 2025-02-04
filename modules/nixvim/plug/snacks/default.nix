@@ -1,8 +1,8 @@
-{ ... }:
+{ self, system, ... }:
 {
   plugins.snacks = {
     enable = true;
-    # package = self.packages.${system}.snacks-nvim;
+    package = self.packages.${system}.snacks-nvim;
   };
 
   imports = [
