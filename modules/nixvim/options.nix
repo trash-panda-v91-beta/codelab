@@ -2,7 +2,7 @@
 {
   options = {
     theme = lib.mkOption {
-      default = lib.mkDefault "cyberdream";
+      default = lib.mkDefault "oxocarbon";
       type = lib.types.enum [
         "aquarium"
         "cyberdream"
@@ -21,6 +21,7 @@
         "paradise"
         "test"
         "tokyonight"
+        "radium"
         "yoru"
       ];
     };
