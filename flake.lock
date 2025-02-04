@@ -402,7 +402,9 @@
         "pkgs-by-name-for-flake-parts": "pkgs-by-name-for-flake-parts",
         "snacks-nvim": "snacks-nvim",
         "treefmt-nix": "treefmt-nix_2",
-        "trouble-nvim": "trouble-nvim"
+        "trouble-nvim": "trouble-nvim",
+        "typr-nvim": "typr-nvim",
+        "volt-nvim": "volt-nvim"
       }
     },
     "snacks-nvim": {
@@ -488,6 +490,38 @@
       "original": {
         "owner": "folke",
         "repo": "trouble.nvim",
+        "type": "github"
+      }
+    },
+    "typr-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738462259,
+        "narHash": "sha256-g+8PpEFMYxLXkP86qgmzCgpBjb5KS1qg/z0VfQa5ciA=",
+        "owner": "nvzone",
+        "repo": "typr",
+        "rev": "1d5b147bde0d92d4c25529aff9904d9ca921641b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvzone",
+        "repo": "typr",
+        "type": "github"
+      }
+    },
+    "volt-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738127906,
+        "narHash": "sha256-iPwsUvtlosPSrxwOW8KGMPonVTRi8WxQdbAAFTU2yXQ=",
+        "owner": "nvzone",
+        "repo": "volt",
+        "rev": "3bedb1576db574af160643eea7df3b09dbe5ee9c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvzone",
+        "repo": "volt",
         "type": "github"
       }
     }
