@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "avante-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738660016,
+        "narHash": "sha256-u/nEIQ7aDEwTmtemiZ0U9p+jx7yChXfpKojJXRLNRJc=",
+        "owner": "yetone",
+        "repo": "avante.nvim",
+        "rev": "1726d3277831fb9476ec42b687eef3f54a73b410",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yetone",
+        "repo": "avante.nvim",
+        "type": "github"
+      }
+    },
     "devshell": {
       "inputs": {
         "nixpkgs": [
@@ -395,6 +411,7 @@
     },
     "root": {
       "inputs": {
+        "avante-nvim": "avante-nvim",
         "flake-parts": "flake-parts",
         "git-hooks-nix": "git-hooks-nix",
         "nixpkgs": "nixpkgs_2",

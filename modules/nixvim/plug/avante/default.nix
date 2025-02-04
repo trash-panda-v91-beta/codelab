@@ -1,9 +1,15 @@
+{ self, system, ... }:
 {
-
   plugins.avante = {
     enable = true;
+    package = self.packages.${system}.avante-nvim;
     lazyLoad.settings.event = [ "BufEnter" ];
     settings = {
+      mappings = {
+        files = {
+          add_current = "<leader>a.";
+        };
+      };
       claude = {
         endpoint = "https://api.anthropic.com";
         max_tokens = 4096;
