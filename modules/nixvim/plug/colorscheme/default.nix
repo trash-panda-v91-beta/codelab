@@ -5,7 +5,7 @@ in
 {
   colorschemes = {
     base16 = {
-      enable = true;
+      enable = false;
       setUpBar = false;
       colorscheme = colors;
       settings = {
@@ -19,7 +19,7 @@ in
       };
     };
     cyberdream = {
-      enable = false;
+      enable = true;
       settings = {
         borderless_telescope = false;
         italic_comments = true;
