@@ -10,6 +10,7 @@ vimUtils.buildVimPlugin {
   dependencies = [ pkgs.vimPlugins.trouble-nvim ];
   nvimSkipModule = [
     "snacks.dashboard"
+    "snacks.image"
     "snacks.indent"
     "snacks.input"
     "snacks.notifier"

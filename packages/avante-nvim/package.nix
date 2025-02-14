@@ -19,7 +19,7 @@ let
   avante-nvim-lib = rustPlatform.buildRustPackage {
     pname = "avante-nvim-lib";
     inherit version src;
-    cargoHash = "sha256-TDRJUwC0t31GP0YTAFWN5/59h3wPuNVeQXRrd5NzDiY=";
+    cargoHash = "sha256-8CF3zCLq6rqNmcI/IAbSewO9vScgO2Hvl8/JfrgtJSA=";
     nativeBuildInputs = [
       pkg-config
     ];
