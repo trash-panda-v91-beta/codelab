@@ -10,6 +10,7 @@
     ./dashboard.nix
     ./git.nix
     ./lazygit.nix
+    ./indent.nix
     ./notifier.nix
     ./picker.nix
     ./rename.nix
