@@ -67,13 +67,15 @@
         };
         yamlls = {
           enable = true;
+          settings = {
+            schemaStore = {
+              enable = false;
+              url = "";
+            };
+          };
           extraOptions = {
-
             settings = {
               yaml = {
-                schemas = {
-                  "https://json.schemastore.org/yamllint.json" = "template.yaml";
-                };
                 customTags = [
                   "!And scalar"
                   "!And mapping"
