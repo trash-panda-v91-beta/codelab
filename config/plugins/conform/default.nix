@@ -19,7 +19,11 @@
       notify_on_error = true;
 
       formatters_by_ft = {
-        python = [ "black" ];
+        python = [
+          "ruff_format"
+          "ruff_fix"
+          "ruff_organize_imports"
+        ];
         lua = [ "stylua" ];
         nix = [ "nixfmt" ];
         markdown = [ "prettier" ];

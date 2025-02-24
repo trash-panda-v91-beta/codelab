@@ -12,6 +12,8 @@
         statix.enable = true;
       };
       diagnostics = {
+        actionlint.enable = true;
+        cfn_lint.enable = true;
         statix.enable = true;
         yamllint.enable = true;
       };
@@ -19,23 +21,6 @@
         nixfmt = {
           enable = true;
           package = pkgs.nixfmt-rfc-style;
-        };
-        black = {
-          enable = true;
-          settings = ''
-            {
-              extra_args = { "--fast" },
-            }
-          '';
-        };
-        prettier = {
-          enable = true;
-          disableTsServerFormatter = true;
-          settings = ''
-            {
-              extra_args = { "--no-semi" },
-            }
-          '';
         };
         stylua.enable = true;
         yamlfmt = {

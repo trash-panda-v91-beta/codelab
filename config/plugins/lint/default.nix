@@ -12,7 +12,9 @@
 
       lintersByFt = {
         bash = [ "shellcheck" ];
+        cfn = [ "cfn-lint" ];
         fish = [ "fish" ];
+        gh-actions = [ "actionlint" ];
         go = [ "golangcilint" ];
         json = [ "jsonlint" ];
         lua = [ "luacheck" ];
@@ -21,6 +23,9 @@
           "deadnix"
           "nix"
           "statix"
+        ];
+        python = [
+          "ruff"
         ];
         sh = [ "shellcheck" ];
         terraform = [ "tflint" ];
@@ -49,11 +54,17 @@
         markdownlint = {
           cmd = lib.getExe pkgs.markdownlint-cli;
         };
-        pylint = {
-          cmd = lib.getExe pkgs.pylint;
+        ruff = {
+          cmd = lib.getExe pkgs.ruff;
         };
         shellcheck = {
           cmd = lib.getExe pkgs.shellcheck;
+        };
+        cfn_lint = {
+          cmd = lib.getExe pkgs.python311Packages.cfn-lint;
+        };
+        actionlint = {
+          cmd = lib.getExe pkgs.actionlint;
         };
         sqlfluff = {
           cmd = lib.getExe pkgs.sqlfluff;

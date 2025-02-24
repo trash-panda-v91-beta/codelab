@@ -8,6 +8,9 @@
     blink-cmp-copilot
     blink-ripgrep-nvim
   ];
+  extraPackages = with pkgs; [
+    ripgrep
+  ];
 
   plugins = {
     blink-cmp-copilot.enable = !config.plugins.blink-copilot.enable;
