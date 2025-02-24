@@ -1,8 +1,13 @@
 {
   config = {
-    colorscheme = "rose-pine";
-    colorschemes.rose-pine.enable = true;
-    colorschemes.rose-pine.settings.styles.transparency = true;
+    colorschemes.cyberdream = {
+      enable = true;
+      settings = {
+        italic_comments = true;
+        hide_fillchars = true;
+        transparent = true;
+      };
+    };
     performance = {
       byteCompileLua = {
         enable = true;
