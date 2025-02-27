@@ -7,9 +7,12 @@
       enable = true;
       inlayHints = true;
       servers = {
+        bashls.enable = true;
+        dockerls.enable = true;
         html = {
           enable = true;
         };
+        jsonls.enable = true;
         lua_ls = {
           enable = true;
         };
@@ -22,12 +25,8 @@
         pyright = {
           enable = true;
         };
-        markdown_oxide = {
-          enable = true;
-        };
-        terraformls = {
-          enable = true;
-        };
+        sqls.enable = true;
+        taplo.enable = true;
         yamlls = {
           enable = true;
           extraOptions = {

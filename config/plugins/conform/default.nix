@@ -1,8 +1,6 @@
-{ pkgs, ... }:
 {
-  extraPackages = with pkgs; [ shfmt ];
   plugins.conform-nvim = {
-    enable = true;
+    enable = false;
 
     lazyLoad.settings = {
       cmd = [
@@ -17,23 +15,7 @@
         timeoutMs = 500;
       };
       notify_on_error = true;
-
       formatters_by_ft = {
-        python = [
-          "ruff_format"
-          "ruff_fix"
-          "ruff_organize_imports"
-        ];
-        lua = [ "stylua" ];
-        nix = [ "nixfmt" ];
-        markdown = [ "prettier" ];
-        yaml = [ "yamlfmt" ];
-        terragrunt = [
-          "hcl"
-        ];
-        bash = [
-          "shfmt"
-        ];
       };
     };
   };
