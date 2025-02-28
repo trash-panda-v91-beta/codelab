@@ -49,7 +49,7 @@
                   "!Or mapping"
                   "!Or sequence"
                   "!FindInMap scalar"
-                  "!FindInMap mappping"
+                  "!FindInMap mapping"
                   "!FindInMap sequence"
                   "!Base64 scalar"
                   "!Base64 mapping"
@@ -91,7 +91,25 @@
       };
       keymaps = {
         silent = true;
+        diagnostic = {
+          "[d" = {
+            action = "goto_prev";
+            desc = "Go to prev diagnostic";
+          };
+          "]d" = {
+            action = "goto_next";
+            desc = "Go to next diagnostic";
+          };
+          "<leader>ld" = {
+            action = "open_float";
+            desc = "Show Line Diagnostics";
+          };
+        };
         lspBuf = {
+          "<leader>ca" = {
+            action = "code_action";
+            desc = "Code Actions";
+          };
           gd = {
             action = "definition";
             desc = "Goto Definition";
@@ -112,6 +130,7 @@
             action = "type_definition";
             desc = "Type Definition";
           };
+          "<leader>K" = "hover";
           "<leader>cr" = {
             action = "rename";
             desc = "Rename";
