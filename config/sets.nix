@@ -98,10 +98,7 @@
       scrolloff = 10;
 
       # Place a column line
-      # colorcolumn = "80";
-
-      # Reduce which-key timeout to 10ms
-      timeoutlen = 10;
+      colorcolumn = "80";
 
       # Set encoding type
       encoding = "utf-8";
