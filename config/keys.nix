@@ -101,7 +101,7 @@
           "n"
           "v"
         ];
-        key = "<localleader>ac";
+        key = "<D-c>";
         action = "<cmd>CodeCompanionChat Toggle<CR>";
         options = {
           desc = "Trigger CodeCompanion chat";
@@ -113,7 +113,7 @@
           "n"
           "v"
         ];
-        key = "<leader>ai";
+        key = "<D-i>";
         action = "<cmd>CodeCompanion<CR>";
         options = {
           desc = "Trigger CodeCompanion inline";
@@ -130,6 +130,14 @@
         options = {
           desc = "Trigger CodeCompanion actions";
           silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<D-s>";
+        action = "update";
+        options = {
+          desc = "Save file";
         };
       }
 
