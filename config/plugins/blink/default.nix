@@ -8,7 +8,9 @@
     blink-cmp-copilot
     blink-ripgrep-nvim
   ];
+
   extraPackages = with pkgs; [
+    gh
     ripgrep
   ];
 
