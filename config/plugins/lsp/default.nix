@@ -24,6 +24,9 @@
         };
         pyright = {
           enable = true;
+          settings = {
+            disableOrganizeImports = true;
+          };
         };
         sqls.enable = true;
         taplo.enable = true;
