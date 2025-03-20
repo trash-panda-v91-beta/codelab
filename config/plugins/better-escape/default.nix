@@ -1,7 +1,7 @@
 {
   plugins = {
     better-escape = {
-      enable = true;
+      enable = false;
       settings = {
         default_mappings = false;
         mappings = {
