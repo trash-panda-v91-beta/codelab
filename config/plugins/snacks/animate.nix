@@ -1,7 +1,7 @@
 _: {
   plugins.snacks = {
     settings = {
-      bigfile = {
+      animate = {
         enable = true;
       };
     };

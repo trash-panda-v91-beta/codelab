@@ -7,6 +7,7 @@
     };
   };
   imports = [
+    ./animate.nix
     ./bigfile.nix
     ./dashboard.nix
     ./git.nix
