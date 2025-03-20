@@ -28,7 +28,7 @@
         "latex"
         "markdown"
       ];
-      command = "setlocal spell spelllang=en,fr";
+      command = "setlocal spell spelllang=en";
     }
 
     # Highlight yank text
@@ -46,6 +46,26 @@
         "gitrebase"
       ];
       command = "startinsert | 1";
+    }
+
+    # Sort python imports
+    {
+      event = "BufWritePost";
+      pattern = "*.py";
+      callback = {
+        __raw = ''
+          function()
+            vim.lsp.buf.code_action {
+              context = {
+                only = { 'source.organizeImports.ruff' },
+              },
+              apply = true,
+            }
+
+            vim.cmd('write')
+          end
+        '';
+      };
     }
   ];
 }
