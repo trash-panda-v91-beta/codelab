@@ -7,6 +7,7 @@
     };
   };
   imports = [
+    ./bigfile.nix
     ./dashboard.nix
     ./git.nix
     ./indent.nix
