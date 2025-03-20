@@ -58,6 +58,8 @@
       grepprg = "rg --vimgrep";
       grepformat = "%f:%l:%c:%m";
 
+      guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20";
+
       # Decrease updatetime
       updatetime = 50; # faster completion (4000ms default)
 
