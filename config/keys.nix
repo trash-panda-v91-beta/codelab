@@ -1,6 +1,7 @@
 {
   config = {
     globals.mapleader = " ";
+    globals.maplocalleader = " ";
 
     keymaps = [
       # Clear and replace word under cursor
@@ -93,6 +94,42 @@
         action = "<CMD>cprev<CR>";
         options = {
           desc = "Previous quickfix item";
+        };
+      }
+      {
+        mode = [
+          "n"
+          "v"
+        ];
+        key = "<localleader>ac";
+        action = "<cmd>CodeCompanionChat Toggle<CR>";
+        options = {
+          desc = "Trigger CodeCompanion chat";
+          silent = true;
+        };
+      }
+      {
+        mode = [
+          "n"
+          "v"
+        ];
+        key = "<leader>ai";
+        action = "<cmd>CodeCompanion<CR>";
+        options = {
+          desc = "Trigger CodeCompanion inline";
+          silent = true;
+        };
+      }
+      {
+        mode = [
+          "n"
+          "v"
+        ];
+        key = "<localleader>aa";
+        action = "<cmd>CodeCompanionActions<CR>";
+        options = {
+          desc = "Trigger CodeCompanion actions";
+          silent = true;
         };
       }
 
