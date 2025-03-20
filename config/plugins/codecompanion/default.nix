@@ -2,6 +2,12 @@
   plugins.codecompanion = {
     enable = true;
     settings = {
+      display = {
+        enabled = true;
+        diff = {
+          provider = "mini_diff";
+        };
+      };
       strategies = {
         agent = {
           adapter = "copilot";
