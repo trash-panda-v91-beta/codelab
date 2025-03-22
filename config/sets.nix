@@ -18,7 +18,6 @@
     };
     clipboard = {
       register = "unnamedplus";
-      providers.wl-copy.enable = true;
     };
     opts = {
       # Enable relative line numbers
