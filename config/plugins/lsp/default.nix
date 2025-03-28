@@ -30,6 +30,7 @@
         };
         sqls.enable = true;
         taplo.enable = true;
+        ts_ls.enable = true;
         yamlls = {
           enable = true;
           extraOptions = {
