@@ -17,6 +17,7 @@ in
     ++ [
       ./autocmd.nix
       ./filetypes.nix
+      ./files.nix
       ./keys.nix
       ./sets.nix
     ];
