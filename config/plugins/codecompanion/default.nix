@@ -7,6 +7,12 @@
         diff = {
           provider = "mini_diff";
         };
+        chat = {
+          window = {
+            layout = "horizontal";
+            height = 0.5;
+          };
+        };
       };
       strategies = {
         agent = {
