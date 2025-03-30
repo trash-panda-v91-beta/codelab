@@ -1,4 +1,5 @@
 {
+  plugins.web-devicons.enable = true;
   plugins.lualine = {
     enable = true;
     lazyLoad.settings.event = "BufEnter";
@@ -9,25 +10,7 @@
           left = "";
           right = "";
         };
-        theme = {
-          normal = {
-            a = {
-              bg = "#nil";
-            };
-            b = {
-              bg = "nil";
-            };
-            c = {
-              bg = "nil";
-            };
-            z = {
-              bg = "nil";
-            };
-            y = {
-              bg = "nil";
-            };
-          };
-        };
+        theme = "auto";
         globalstatus = true;
         disabled_filetypes = {
           statusline = [
@@ -38,90 +21,179 @@
           ];
         };
       };
-      inactive_sections = {
-        lualine_x = [
-          "filename"
-        ];
-      };
       sections = {
         lualine_a = [
           {
             __unkeyed = "mode";
-            fmt = "string.lower";
-            color = {
-              bg = "nil";
-            };
-            separator.left = "";
-            separator.right = "";
-          }
-          {
-            __unkeyed = "branch";
-            icon.__unkeyed = "";
-            color = {
-            };
+            fmt.__raw = ''
+              function(mode)
+                return mode:lower()
+              end
+            '';
+            icon = "";
           }
         ];
         lualine_b = [
           {
-            __unkeyed = "diff";
-            separator.left = "";
-            separator.right = "";
+            __unkeyed = "branch";
+            icon = "";
           }
         ];
-        lualine_c = [ "" ];
-        lualine_x = [ "" ];
-        lualine_y = [ "" ];
-        lualine_z = [
+        lualine_c = [
           {
-            __unkeyed = "diagnostic";
+            __unkeyed = "diagnostics";
             symbols = {
               error = " ";
               warn = " ";
               info = " ";
               hint = "󰝶 ";
             };
-            color = {
-              bg = "nil";
-            };
-            separator.left = "";
-            separator.right = "";
           }
+          {
+            separator = "";
+            padding = {
+              left = 0;
+              right = 0;
+            };
+            __unkeyed.__raw = ''
+              function()
+                  local utils = require("utils")
+                  local devicons = require("nvim-web-devicons")
+                  local ft = vim.bo.filetype
+                  local icon
+                  if utils.filetype_map[ft] then
+                      return " " .. utils.filetype_map[ft].icon
+                  end
+                  if icon == nil then
+                      icon = devicons.get_icon(vim.fn.expand("%:t"))
+                  end
+                  if icon == nil then
+                      icon = devicons.get_icon_by_filetype(ft)
+                  end
+                  if icon == nil then
+                      icon = " 󰈤"
+                  end
+                  return icon .. " "
+              end
+            '';
+            color.__raw = ''
+              function()
+                local utils = require("utils")
+                local _, hl = require("nvim-web-devicons").get_icon(vim.fn.expand("%:t"))
+                if hl then
+                    return hl
+                end
+                return utils.get_hlgroup("Normal")
+              end
+            '';
+          }
+          {
+            __unkeyed = "filename";
+            padding = {
+              left = 0;
+              right = 0;
+            };
+            fmt.__raw = ''
+              function(name)
+                local utils = require("utils")
+                if utils.filetype_map[vim.bo.filetype] then
+                    return utils.filetype_map[vim.bo.filetype].name
+                else
+                    return name
+                end
+              end
+            '';
+          }
+          {
+            padding = {
+              left = 0;
+              right = 1;
+            };
+            __unkeyed.__raw = ''
+              function()
+                local buffer_count = require("utils").get_buffer_count()
+                return "+" .. buffer_count - 1 .. " "
+              end
+            '';
+            cond.__raw = ''
+              function()
+                return require("utils").get_buffer_count() > 1
+              end
+            '';
+            color.__raw = ''require("utils").get_hlgroup("Operator", nil)'';
+          }
+          {
+            __unkeyed.__raw = ''
+              function()
+                  local tab_count = vim.fn.tabpagenr("$")
+                  if tab_count > 1 then
+                      return vim.fn.tabpagenr() .. " of " .. tab_count
+                  end
+              end
+            '';
+            cond.__raw = ''
+              function()
+                  return vim.fn.tabpagenr("$") > 1
+              end
+            '';
+            icon = "󰓩";
+            color.__raw = ''require("utils").get_hlgroup("Special", nil)'';
+          }
+        ];
+        lualine_x = [
+          {
+            __unkeyed.__raw = ''
+              require("noice").api.status.mode.get,
+              cond = function()
+                  local ignore = {
+                      "-- INSERT --",
+                      "-- TERMINAL --",
+                      "-- VISUAL --",
+                      "-- VISUAL LINE --",
+                      "-- VISUAL BLOCK --",
+                  }
+                  local mode = require("noice").api.status.mode.get()
+                  return require("noice").api.status.mode.has() and not vim.tbl_contains(ignore, mode)
+              end
+            '';
+            color.__raw = ''require("utils").get_hlgroup("Comment")'';
+          }
+          {
+            __unkeyed.__raw = ''
+              function()
+                  local utils = require("utils")
+                  local venv = utils.get_venv()
+                  if venv then
+                      return "● " .. venv
+                  else
+                    return ""
+                  end
+              end
+            '';
+            cond.__raw = ''
+              function()
+                return vim.bo.filetype == "python"
+              end
+            '';
+            color.__raw = ''require('utils').get_hlgroup("Special")'';
+          }
+          { __unkeyed = "diff"; }
+        ];
+        lualine_y = [
+          {
+            __unkeyed = "progress";
+          }
+        ];
+        lualine_z = [
           {
             __unkeyed = "location";
-            color = {
-            };
-            separator.left = "";
-            separator.right = "";
-          }
-          {
-            __unkeyed = {
-              __raw = ''
-                function()
-                  local chars = setmetatable({
-                    " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ",
-                    " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ",
-                  }, { __index = function() return " " end })
-                  local line_ratio = vim.api.nvim_win_get_cursor(0)[1] / vim.api.nvim_buf_line_count(0)
-                  local position = math.floor(line_ratio * 100)
-
-                  local icon = chars[math.floor(line_ratio * #chars)] .. position
-                  if position <= 5 then
-                    icon = " TOP"
-                  elseif position >= 95 then
-                    icon = " BOT"
-                  end
-                  return icon
-                end
-              '';
-            };
-            color = {
-            };
-            padding = 0;
-            separator.left = "";
-            separator.right = "";
+            color.__raw = ''require('utils').get_hlgroup("Boolean")'';
           }
         ];
       };
+      extensions = [
+        "quickfix"
+      ];
     };
   };
 }
