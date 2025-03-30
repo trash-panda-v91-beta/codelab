@@ -79,8 +79,7 @@ in
             keymaps = {
               send = {
                 modes = {
-                  n = "<A-s>";
-                  i = "<A-s>";
+                  n = "s";
                 };
               };
             };
