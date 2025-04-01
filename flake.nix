@@ -1,11 +1,10 @@
 {
-  description = "Spaceship's Neovim configuration";
+  description = ".code-editor";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
 
-    # Plugins built for source
     snacks-nvim = {
       url = "github:folke/snacks.nvim";
       flake = false;
@@ -21,7 +20,6 @@
         "x86_64-darwin"
         "aarch64-darwin"
       ];
-
       forAllSystems = fn: nixpkgs.lib.genAttrs systems fn;
     in
     {
