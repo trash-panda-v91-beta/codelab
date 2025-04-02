@@ -1,7 +1,8 @@
+{ config, lib, ... }:
 {
   plugins = {
     bufferline = {
-      enable = true;
+      enable = false;
       settings = {
         options.__raw = ''
           {
@@ -33,13 +34,12 @@
             persist_buffer_sort = true,
             separator_style = "none",
             always_show_bufferline = true,
-            -- enforce_regular_tabs = true,
           }
         '';
       };
     };
   };
-  keymaps = [
+  keymaps = lib.mkIf config.plugins.bufferline.enable [
     {
       mode = "n";
       key = "<Tab>";
@@ -73,33 +73,6 @@
       action = "<cmd>BufferLineCyclePrev<cr>";
       options = {
         desc = "Cycle to previous buffer";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bd";
-      action = "<cmd>bdelete<cr>";
-      options = {
-        desc = "Delete buffer";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bb";
-      action = "<cmd>e #<cr>";
-      options = {
-        desc = "Switch to Other Buffer";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>`";
-      action = "<cmd>e #<cr>";
-      options = {
-        desc = "Switch to Other Buffer";
       };
     }
 

@@ -89,6 +89,8 @@
           }
           {
             __unkeyed = "filename";
+            path = 4;
+            file_status = false;
             padding = {
               left = 0;
               right = 0;
