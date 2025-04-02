@@ -3,46 +3,73 @@
     snacks = {
       settings = {
         picker = {
-          actions.__raw = ''require("trouble.sources.snacks").actions'';
+          actions = {
+            trouble_open.__raw = ''
+              function(...)
+                return require("trouble.sources.snacks").actions.trouble_open.action(...)
+              end
+            '';
+          };
           matcher = {
             frecency = true;
           };
           win = {
             input = {
-              keys.__raw = ''
-                {
-                  ["<c-t>"] = {
-                    "trouble_open",
-                    mode = { "n", "i" },
-                  },
-                }
-              '';
+              keys = {
+                "<c-t>" = {
+                  __unkeyed = "trouble_open";
+                  mode = [
+                    "n"
+                    "i"
+                  ];
+                };
+                "<c-u>" = {
+                  __unkeyed = "preview_scroll_up";
+                  mode = [
+                    "n"
+                    "i"
+                  ];
+                };
+                "<c-d>" = {
+                  __unkeyed = "preview_scroll_down";
+                  mode = [
+                    "n"
+                    "i"
+                  ];
+                };
+              };
             };
           };
-          layouts.default.__raw = ''
-            {
-              reverse = true,
-              layout = {
-                box = "horizontal",
-                backdrop = true,
-                width = 0.8,
-                height = 0.9,
-                border = "none",
-                {
-                  box = "vertical",
-                  { win = "list", title = " Results ", title_pos = "center", border = "rounded" },
-                  { win = "input", height = 1, border = "rounded", title = "{title} {live} {flags}", title_pos = "center" },
-                },
-                {
-                  win = "preview",
-                  title = "{preview:Preview}",
-                  width = 0.45,
-                  border = "rounded",
-                  title_pos = "center",
-                },
-              },
-            }
-          '';
+          layouts.default = {
+            layout = {
+              box = "vertical";
+              backdrop = false;
+              row = -1;
+              width = 0;
+              height = 0.4;
+              border = "top";
+              title = " {title} {live} {flags}";
+              title_pos = "left";
+              __unkeyed-1 = {
+                win = "input";
+                height = 1;
+                border = "bottom";
+              };
+              __unkeyed-2 = {
+                box = "horizontal";
+                __unkeyed-1 = {
+                  win = "list";
+                  border = "none";
+                };
+                __unkeyed-2 = {
+                  win = "preview";
+                  title = "{preview}";
+                  width = 0.6;
+                  border = "left";
+                };
+              };
+            };
+          };
         };
       };
     };
@@ -88,7 +115,6 @@
         desc = "Find help tags";
       };
     }
-    # NOTE: prefer the UI but is lot slower
     {
       mode = "n";
       key = "<leader>fk";
@@ -171,7 +197,7 @@
     }
     {
       mode = "n";
-      key = "<leader>fb";
+      key = "<leader>s";
       action = ''<cmd>lua Snacks.picker.buffers()<cr>'';
       options = {
         desc = "Find buffers";
