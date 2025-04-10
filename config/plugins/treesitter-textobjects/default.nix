@@ -21,19 +21,19 @@
     move = {
       enable = true;
       gotoNextStart = {
-        "]m" = "@function.outer";
+        "]f" = "@function.outer";
         "]]" = "@class.outer";
       };
       gotoNextEnd = {
-        "]M" = "@function.outer";
+        "]F" = "@function.outer";
         "][" = "@class.outer";
       };
       gotoPreviousStart = {
-        "[m" = "@function.outer";
+        "[f" = "@function.outer";
         "[[" = "@class.outer";
       };
       gotoPreviousEnd = {
-        "[M" = "@function.outer";
+        "[F" = "@function.outer";
         "[]" = "@class.outer";
       };
     };
