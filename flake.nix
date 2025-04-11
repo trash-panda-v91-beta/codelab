@@ -26,11 +26,30 @@
       packages = forAllSystems (
         system:
         let
+          nixvimLib = inputs.nixvim.lib;
+          helpers = nixvimLib.nixvim // {
+            mkLuaFnWithName =
+              name: lua:
+              # lua
+              ''
+                function ${name}()
+                  ${lua}
+                end
+              '';
+
+            mkLuaFn =
+              lua: # lua
+              ''
+                function()
+                  ${lua}
+                end
+              '';
+          };
           nixvim' = nixvim.legacyPackages.${system};
           nixvimModule = {
             inherit system;
             module = import ./config;
-            extraSpecialArgs = { inherit inputs; };
+            extraSpecialArgs = { inherit inputs helpers; };
           };
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in

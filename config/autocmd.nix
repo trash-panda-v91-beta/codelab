@@ -1,3 +1,4 @@
+{ helpers, ... }:
 {
   config.autoCmd = [
     # Vertically center document when entering insert mode
@@ -50,21 +51,21 @@
 
     # Sort python imports
     {
-      event = "BufWritePost";
+      event = "BufWritePre";
       pattern = "*.py";
       callback = {
-        __raw = ''
-          function()
-            vim.lsp.buf.code_action {
-              context = {
-                only = { 'source.organizeImports.ruff' },
-              },
-              apply = true,
-            }
+        __raw =
+          helpers.mkLuaFn # lua
+            ''
+          	vim.lsp.buf.code_action({
+          		context = {
+          			only = { "source.organizeImports.ruff" },
+          		},
+          		apply = true,
+          	})
 
-            vim.cmd('write')
-          end
-        '';
+          	vim.cmd("write")
+            '';
       };
     }
   ];
