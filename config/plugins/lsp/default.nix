@@ -1,8 +1,5 @@
 {
   plugins = {
-    lsp-format = {
-      enable = true;
-    };
     lsp = {
       enable = true;
       inlayHints = true;
@@ -22,13 +19,13 @@
         ruff = {
           enable = true;
         };
-        pyright = {
+        basedpyright = {
           enable = true;
           settings = {
             disableOrganizeImports = true;
           };
         };
-        sqls.enable = true;
+        sqls.enable = false;
         taplo.enable = true;
         ts_ls.enable = true;
         yamlls = {
