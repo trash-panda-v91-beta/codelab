@@ -90,16 +90,22 @@ in
         };
       };
     };
-    render-markdown = {
-      enable = true;
-      lazyLoad.settings = {
-        ft = [ "codecompanion" ];
-      };
-      settings = {
-        file_types = [
-          "codecompanion"
-        ];
-      };
+    markview.settings.preview = {
+      filetypes = [ "codecompanion" ];
+      ignore_buftypes = { };
+      condition.__raw = ''
+        function (buffer)
+            local ft, bt = vim.bo[buffer].ft, vim.bo[buffer].bt;
+
+            if bt == "nofile" and ft == "codecompanion" then
+                 return true;
+            elseif bt == "nofile" then
+                 return false;
+            else
+                 return true;
+            end
+        end
+      '';
     };
     lualine.settings = {
       sections.lualine_x = [
