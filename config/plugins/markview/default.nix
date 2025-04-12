@@ -1,30 +1,28 @@
+{ lib, config, ... }:
 {
   plugins = {
     markview = {
       enable = true;
       luaConfig.post = ''
         require("markview.extras.checkboxes").setup({
-            default = "X",
-            remove_style = "disable",
-            states = {
-                { " ", "/", "X" },
-                { "<", ">" },
-                { "?", "!", "*" },
-                { '"' },
-                { "l", "b", "i" },
-                { "S", "I" },
-                { "p", "c" },
-                { "f", "k", "w" },
-                { "u", "d" }
-            }
+        	default = "X",
+        	remove_style = "disable",
+        	states = {
+        		{ " ", "/", "X" },
+        		{ "<", ">" },
+        		{ "?", "!", "*" },
+        		{ '"' },
+        		{ "l", "b", "i" },
+        		{ "S", "I" },
+        		{ "p", "c" },
+        		{ "f", "k", "w" },
+        		{ "u", "d" },
+        	},
         })
       '';
 
       lazyLoad.enable = false; # NOTE: it is already lazy-loaded
       settings = {
-        html.enable = true;
-        latex.enable = true;
-
         preview = {
           callbacks.on_enable.__raw = ''
             function(_, win)
@@ -33,14 +31,32 @@
               vim.wo[win].wrap = false
             end
           '';
-          hybrid_modes = [
-            "i"
-          ];
+          ignore_buftypes = [ ];
+
+          condition.__raw = ''
+             function (buffer)
+                local ft, bt = vim.bo[buffer].ft, vim.bo[buffer].bt;
+                if ft == "codecompanion" then
+                     return true;
+                elseif bt == "nofile" then
+                     return false;
+                else
+                     return true;
+                end
+            end
+          '';
+          hybrid_modes = [ "i" ];
           modes = [
-            "n"
             "i"
-            "nc"
+            "n"
+            "no"
             "c"
+          ];
+          filetypes = [
+            "md"
+            "markdown"
+            "Avante"
+            "codecompanion"
           ];
         };
       };
@@ -49,7 +65,7 @@
       settings.sources.per_filetype.markdown = [ "markview" ];
     };
   };
-  keymaps = [
+  keymaps = lib.mkIf config.plugins.spectre.enable [
     {
       mode = [
         "n"
