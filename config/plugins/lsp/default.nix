@@ -6,6 +6,7 @@
       servers = {
         bashls.enable = true;
         dockerls.enable = true;
+        harper_ls.enable = true;
         html = {
           enable = true;
         };
