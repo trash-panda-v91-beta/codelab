@@ -32,19 +32,6 @@
             end
           '';
           ignore_buftypes = [ ];
-
-          condition.__raw = ''
-             function (buffer)
-                local ft, bt = vim.bo[buffer].ft, vim.bo[buffer].bt;
-                if ft == "codecompanion" then
-                     return true;
-                elseif bt == "nofile" then
-                     return false;
-                else
-                     return true;
-                end
-            end
-          '';
           hybrid_modes = [ "i" ];
           modes = [
             "i"
