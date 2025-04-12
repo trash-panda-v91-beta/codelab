@@ -21,19 +21,19 @@
           deadnix.enable = true;
           dotenv_linter.enable = true;
           editorconfig_checker.enable = true;
+          fish.enable = true;
           hadolint.enable = true;
-          markdownlint.enable = true;
           markdownlint_cli2.enable = true;
           sqlfluff.enable = true;
           statix.enable = true;
           todo_comments.enable = false;
           trail_space.enable = true;
-          vale.enable = true;
+          vale.enable = false;
           yamllint.enable = true;
         };
         formatting = {
           codespell.enable = true;
-          markdownlint.enable = true;
+          mdformat.enable = true;
           nixfmt = {
             enable = true;
             package = pkgs.nixfmt-rfc-style;
