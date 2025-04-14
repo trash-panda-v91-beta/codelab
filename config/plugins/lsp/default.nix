@@ -22,6 +22,9 @@
             };
           };
         };
+        markdown_oxide = {
+          enable = true;
+        };
         nixd = {
           enable = true;
         };
