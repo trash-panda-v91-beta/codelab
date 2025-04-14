@@ -33,7 +33,14 @@
         };
         formatting = {
           codespell.enable = true;
-          mdformat.enable = true;
+          mdformat = {
+            enable = true;
+            package = pkgs.mdformat.withPlugins (p: [
+              p.mdformat-frontmatter
+              p.mdformat-gfm
+              p.mdformat-wikilink
+            ]);
+          };
           nixfmt = {
             enable = true;
             package = pkgs.nixfmt-rfc-style;
