@@ -38,7 +38,6 @@
             enable = true;
             package = pkgs.nixfmt-rfc-style;
           };
-          stylua.enable = true;
           sqlfluff.enable = false;
           yamlfmt = {
             enable = true;

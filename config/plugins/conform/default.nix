@@ -20,18 +20,23 @@
       default_format_opts = {
         quiet = false;
         async = false;
-        lsp_format = "fallback";
+        lsp_format = "first";
       };
       format_on_save = {
-        lsp_format = "fallback";
         timeout_ms = 500;
       };
       notify_on_error = true;
       formatters_by_ft = {
         fish = [ "fish_indent" ];
         lua = [ "stylua" ];
-        nix = [ "injected" ];
-        python = [ "injected" ];
+        nix = {
+          __unkeyed = "injected";
+          lsp_format = "first";
+        };
+        python = {
+          __unkeyed = "injected";
+          lsp_format = "first";
+        };
         sql = [ "sqlfluff" ];
       };
       formatters = {
