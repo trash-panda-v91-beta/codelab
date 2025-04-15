@@ -9,5 +9,6 @@
     ./ai.nix
     ./diff.nix
     ./files.nix
+    ./snippets.nix
   ];
 }
