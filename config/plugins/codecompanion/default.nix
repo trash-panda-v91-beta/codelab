@@ -1,3 +1,8 @@
+{
+  config,
+  helpers,
+  ...
+}:
 let
   lualine_component = ''
     (function()
@@ -52,12 +57,27 @@ let
          return M
     end)()
   '';
+  inherit (config) ai-provider;
 in
 {
   plugins = {
     codecompanion = {
       enable = true;
       settings = {
+        adapters = {
+          copilot.__raw =
+            helpers.mkLuaFn
+              # Lua
+              ''
+                return require("codecompanion.adapters").extend("copilot", {
+                	schema = {
+                		model = {
+                			default = "claude-3.7-sonnet",
+                		},
+                	},
+                })
+              '';
+        };
         display = {
           enabled = true;
           diff = {
@@ -72,10 +92,10 @@ in
         };
         strategies = {
           agent = {
-            adapter = "copilot";
+            adapter = ai-provider;
           };
           chat = {
-            adapter = "copilot";
+            adapter = ai-provider;
             keymaps = {
               send = {
                 modes = {
@@ -85,7 +105,7 @@ in
             };
           };
           inline = {
-            adapter = "copilot";
+            adapter = ai-provider;
           };
         };
       };

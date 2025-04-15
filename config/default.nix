@@ -19,6 +19,7 @@ in
       ./filetypes.nix
       ./files.nix
       ./keys.nix
+      ./options.nix
       ./sets.nix
     ];
 }

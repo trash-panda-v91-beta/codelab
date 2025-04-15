@@ -1,3 +1,7 @@
+{ config, ... }:
+let
+  inherit (config) ai-provider;
+in
 {
   plugins.avante = {
     enable = false;
@@ -33,7 +37,7 @@
           theirs = "tc";
         };
       };
-      provider = "copilot";
+      provider = ai-provider;
       windows = {
         sidebar_header = {
           align = "center";
