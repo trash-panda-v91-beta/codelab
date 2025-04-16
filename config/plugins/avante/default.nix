@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  inherit (config) ai-provider;
+  inherit (config) aiProvider;
 in
 {
   plugins.avante = {
@@ -37,7 +37,7 @@ in
           theirs = "tc";
         };
       };
-      provider = ai-provider;
+      provider = aiProvider.name;
       windows = {
         sidebar_header = {
           align = "center";

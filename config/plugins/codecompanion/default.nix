@@ -57,7 +57,7 @@ let
          return M
     end)()
   '';
-  inherit (config) ai-provider;
+  inherit (config) aiProvider;
 in
 {
   plugins = {
@@ -72,7 +72,7 @@ in
                 return require("codecompanion.adapters").extend("copilot", {
                 	schema = {
                 		model = {
-                			default = "claude-3.7-sonnet",
+                			default = "${aiProvider.model}",
                 		},
                 	},
                 })
@@ -92,10 +92,10 @@ in
         };
         strategies = {
           agent = {
-            adapter = ai-provider;
+            adapter = aiProvider.name;
           };
           chat = {
-            adapter = ai-provider;
+            adapter = aiProvider.name;
             keymaps = {
               send = {
                 modes = {
@@ -105,7 +105,7 @@ in
             };
           };
           inline = {
-            adapter = ai-provider;
+            adapter = aiProvider.name;
           };
         };
       };
