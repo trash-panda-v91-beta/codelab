@@ -21,17 +21,6 @@
       command = "inoremap <buffer><silent> <ESC> <ESC>:close!<CR>";
     }
 
-    # Enable spellcheck for some filetypes
-    {
-      event = "FileType";
-      pattern = [
-        "tex"
-        "latex"
-        "markdown"
-      ];
-      command = "setlocal spell spelllang=en";
-    }
-
     # Highlight yank text
     {
       event = "TextYankPost";
@@ -57,14 +46,14 @@
         __raw =
           helpers.mkLuaFn # lua
             ''
-          	vim.lsp.buf.code_action({
-          		context = {
-          			only = { "source.organizeImports.ruff" },
-          		},
-          		apply = true,
-          	})
+              	vim.lsp.buf.code_action({
+              		context = {
+              			only = { "source.organizeImports.ruff" },
+              		},
+              		apply = true,
+              	})
 
-          	vim.cmd("write")
+              	vim.cmd("write")
             '';
       };
     }
