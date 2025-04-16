@@ -34,7 +34,8 @@
         formatting = {
           codespell.enable = true;
           mdformat = {
-            enable = true;
+            # TODO: make it work with Markview
+            enable = false;
             package = pkgs.mdformat.withPlugins (p: [
               p.mdformat-frontmatter
               p.mdformat-gfm
