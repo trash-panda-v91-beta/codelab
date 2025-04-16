@@ -43,6 +43,7 @@
         silent = true;
         desc = "Show test summary";
       };
+    }
     {
       mode = "n";
       key = "<leader>to";
