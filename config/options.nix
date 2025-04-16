@@ -11,7 +11,7 @@
           };
 
           model = lib.mkOption {
-            type = lib.types.str;
+            type = lib.types.nullOr lib.types.str;
             description = "AI model to use";
             example = "claude-3.7-sonnet";
           };
@@ -20,7 +20,7 @@
       description = "Configuration for AI provider integration";
       default = {
         name = "copilot";
-        model = "claude-3.7-sonnet";
+        model = null;
       };
     };
   };

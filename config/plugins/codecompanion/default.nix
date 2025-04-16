@@ -1,6 +1,7 @@
 {
   config,
   helpers,
+  lib,
   ...
 }:
 let
@@ -65,18 +66,20 @@ in
       enable = true;
       settings = {
         adapters = {
-          copilot.__raw =
-            helpers.mkLuaFn
-              # Lua
-              ''
-                return require("codecompanion.adapters").extend("copilot", {
-                	schema = {
-                		model = {
-                			default = "${aiProvider.model}",
-                		},
-                	},
-                })
-              '';
+          copilot = lib.mkIf (aiProvider.model != null) {
+            __raw =
+              helpers.mkLuaFn
+                # Lua
+                ''
+                  return require("codecompanion.adapters").extend("copilot", {
+                  	schema = {
+                  		model = {
+                  			default = "${aiProvider.model}",
+                  		},
+                  	},
+                  })
+                '';
+          };
         };
         display = {
           enabled = true;
