@@ -43,14 +43,22 @@
         silent = true;
         desc = "Show test summary";
       };
-    }
     {
       mode = "n";
       key = "<leader>to";
-      action = "<cmd>Neotest output-panel<CR>";
+      action = "<cmd>Neotest output<CR>";
       options = {
         silent = true;
         desc = "Show test output";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>tp";
+      action = "<cmd>Neotest output-panel<CR>";
+      options = {
+        silent = true;
+        desc = "Show test output panel";
       };
     }
   ];
