@@ -10,5 +10,6 @@
     ./diff.nix
     ./files.nix
     ./snippets.nix
+    ./surround.nix
   ];
 }
