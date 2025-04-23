@@ -1,6 +1,13 @@
+{ config, lib, ... }:
 {
   plugins.neotest = {
     enable = true;
+    settings = {
+      adapters = lib.optionals config.plugins.rustaceanvim.enable [
+        # Lua
+        ''require("rustaceanvim.neotest")''
+      ];
+    };
     adapters = {
       python = {
         enable = true;
