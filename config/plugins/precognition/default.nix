@@ -1,7 +1,7 @@
 {
   plugins = {
     precognition = {
-      enable = true;
+      enable = false;
     };
   };
 }
