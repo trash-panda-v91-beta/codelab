@@ -16,6 +16,7 @@ in
     ) [ ] (readDir by-name))
     ++ [
       ./autocmd.nix
+      ./diagnostics.nix
       ./filetypes.nix
       ./files.nix
       ./keys.nix
