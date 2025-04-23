@@ -145,17 +145,16 @@
         lualine_x = [
           {
             __unkeyed.__raw = ''
-              require("noice").api.status.mode.get,
-              cond = function()
-                  local ignore = {
-                      "-- INSERT --",
-                      "-- TERMINAL --",
-                      "-- VISUAL --",
-                      "-- VISUAL LINE --",
-                      "-- VISUAL BLOCK --",
-                  }
-                  local mode = require("noice").api.status.mode.get()
-                  return require("noice").api.status.mode.has() and not vim.tbl_contains(ignore, mode)
+              require("noice").api.status.mode.get, cond = function()
+              	local ignore = {
+              		"-- INSERT --",
+              		"-- TERMINAL --",
+              		"-- VISUAL --",
+              		"-- VISUAL LINE --",
+              		"-- VISUAL BLOCK --",
+              	}
+              	local mode = require("noice").api.status.mode.get()
+              	return require("noice").api.status.mode.has() and not vim.tbl_contains(ignore, mode)
               end
             '';
             color.__raw = ''require("utils").get_hlgroup("Comment")'';
@@ -177,9 +176,22 @@
                 return vim.bo.filetype == "python"
               end
             '';
-            color.__raw = ''require('utils').get_hlgroup("Special")'';
+            color.__raw = ''require("utils").get_hlgroup("Special")'';
           }
           { __unkeyed = "diff"; }
+          {
+            __unkeyed.__raw = ''
+              function()
+                if vim.b.disable_autoformat or vim.g.disable_autoformat then
+                  return "F̶"
+                else
+                  return ""
+                end
+              end
+            '';
+            color.__raw = ''require("utils").get_hlgroup("DiagnosticWarn")'';
+          }
+
         ];
         lualine_y = [
           {
@@ -189,7 +201,7 @@
         lualine_z = [
           {
             __unkeyed = "location";
-            color.__raw = ''require('utils').get_hlgroup("Boolean")'';
+            color.__raw = ''require("utils").get_hlgroup("Boolean")'';
           }
         ];
       };

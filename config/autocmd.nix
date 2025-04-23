@@ -37,25 +37,5 @@
       ];
       command = "startinsert | 1";
     }
-
-    # Sort python imports
-    {
-      event = "BufWritePre";
-      pattern = "*.py";
-      callback = {
-        __raw =
-          helpers.mkLuaFn # lua
-            ''
-              	vim.lsp.buf.code_action({
-              		context = {
-              			only = { "source.organizeImports.ruff" },
-              		},
-              		apply = true,
-              	})
-
-              	vim.cmd("write")
-            '';
-      };
-    }
   ];
 }

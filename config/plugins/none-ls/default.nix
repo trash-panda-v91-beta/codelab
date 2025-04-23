@@ -1,11 +1,16 @@
-{ pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   plugins = {
     lsp-format = {
       enable = false;
     };
     none-ls = {
-      enable = true;
+      enable = false;
       enableLspFormat = false;
       sources = {
         code_actions = {
@@ -54,7 +59,7 @@
       };
     };
   };
-  keymaps = [
+  keymaps = lib.mkIf config.plugins.none-ls.enable [
     {
       mode = [
         "n"
