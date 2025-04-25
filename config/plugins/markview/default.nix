@@ -32,7 +32,10 @@
             end
           '';
           ignore_buftypes = [ ];
-          hybrid_modes = [ "i" ];
+          hybrid_modes = [
+            "i"
+            "n"
+          ];
           modes = [
             "i"
             "n"
