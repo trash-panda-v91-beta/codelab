@@ -15,6 +15,7 @@
     ./lazygit.nix
     ./notifier.nix
     ./picker.nix
+    ./scope.nix
   ];
 
 }

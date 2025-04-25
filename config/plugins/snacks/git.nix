@@ -1,7 +1,9 @@
 {
   plugins.snacks = {
     settings = {
-      git = { };
+      git = {
+        enable = true;
+      };
     };
   };
   keymaps = [
