@@ -51,11 +51,8 @@
         };
       };
     };
-    blink-cmp = {
-      settings.sources.per_filetype.markdown = [ "markview" ];
-    };
   };
-  keymaps = lib.mkIf config.plugins.spectre.enable [
+  keymaps = lib.mkIf config.plugins.markview.enable [
     {
       mode = [
         "n"
