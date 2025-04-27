@@ -6,6 +6,9 @@ on:
     - cron: "0 0 * * *"
 jobs:
   createPullRequest:
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
