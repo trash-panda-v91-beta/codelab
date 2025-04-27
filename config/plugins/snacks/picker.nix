@@ -16,6 +16,13 @@
           win = {
             input = {
               keys = {
+                "<c-h>" = {
+                  __unkeyed = "toggle_hidden";
+                  mode = [
+                    "n"
+                    "i"
+                  ];
+                };
                 "<c-t>" = {
                   __unkeyed = "trouble_open";
                   mode = [
