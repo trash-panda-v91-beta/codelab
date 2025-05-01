@@ -1,9 +1,8 @@
 { pkgs, ... }:
 {
   extraPackages = with pkgs; [
-    pngpaste
+    (if stdenv.isDarwin then pngpaste else wl-clipboard)
   ];
   extraPlugins = [ pkgs.vimPlugins.img-clip-nvim ];
   extraConfigLua = ''require("img-clip").setup()'';
-
 }
