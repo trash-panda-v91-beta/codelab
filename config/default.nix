@@ -20,6 +20,7 @@ in
       ./filetypes.nix
       ./files.nix
       ./keys.nix
+      ./lsp.nix
       ./options.nix
       ./sets.nix
     ];
