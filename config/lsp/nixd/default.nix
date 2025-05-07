@@ -11,7 +11,7 @@
     settings.settings =
       let
         flake = ''(builtins.getFlake "${self}")'';
-        system = ''''${builtins.currentSystem}'';
+        system = "${builtins.currentSystem}";
       in
       {
         nixpkgs.expr = "import ${flake}.inputs.nixpkgs { }";
