@@ -6,9 +6,6 @@
 }:
 {
   plugins = {
-    lsp-format = {
-      enable = false;
-    };
     none-ls = {
       enable = false;
       enableLspFormat = false;
