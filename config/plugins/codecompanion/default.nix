@@ -130,7 +130,7 @@ in
 
                   -   You may receive code in various programming languages or even natural language instructions.
                   -   If the clipboard content is in a different language than the current buffer, translate it to the appropriate language smartly.
-                  -   If the clipboard content contains psudo code generate code accordingly.
+                  -   If the clipboard content contains pseudo code generate code accordingly.
                   -   If the clipboard content contains natural language instructions, interpret and follow them to modify the code in the current buffer.
                   -   **ONLY** generate the **new** lines of code required for seamless integration.
                   -   Ensure the inserted code is syntactically correct and logically consistent with the existing code.
