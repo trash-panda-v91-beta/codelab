@@ -14,6 +14,12 @@
     snacks = {
       settings = {
         picker = {
+          formatters = {
+            file = {
+              filename_first = true;
+              truncate = 90;
+            };
+          };
           actions = {
             trouble_open.__raw = ''
               function(...)
