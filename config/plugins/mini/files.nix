@@ -3,7 +3,7 @@
   plugins.mini.modules.files = {
 
     windows = {
-      preview = true;
+      preview = false;
       width_preview = 100;
     };
     mappings = {
