@@ -59,7 +59,7 @@
           nixvimModule = {
             inherit system;
             module = import ./config;
-            extraSpecialArgs = { inherit inputs helpers; };
+            extraSpecialArgs = { inherit inputs self helpers; };
           };
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in

@@ -10,8 +10,8 @@
 
     settings.settings =
       let
-        flake = ''(builtins.getFlake "${self}")'';
-        system = "${builtins.currentSystem}";
+        flake = ''(getFlake "${self}")'';
+        system = "$currentSystem}";
       in
       {
         nixpkgs.expr = "import ${flake}.inputs.nixpkgs { }";
