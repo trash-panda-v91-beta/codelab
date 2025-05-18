@@ -1,8 +1,8 @@
 {
-  diagnostic.config = {
+  diagnostic.settings = {
+
     update_in_insert = true;
     severity_sort = true;
-
     virtual_text = {
       severity.min = "warn";
       source = "if_many";
