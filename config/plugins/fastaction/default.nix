@@ -10,7 +10,6 @@
     {
       mode = [
         "n"
-        "i"
       ];
       key = "<leader>ca";
       action = "<cmd>lua require('fastaction').code_action()<CR>";
