@@ -520,7 +520,7 @@
         }
         {
           mode = "n";
-          key = "gr";
+          key = "gR";
           action = ''<cmd>lua Snacks.picker.lsp_references()<cr>'';
           options = {
             desc = "References";
