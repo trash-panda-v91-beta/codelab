@@ -23,6 +23,9 @@
 
       lazyLoad.enable = false; # NOTE: it is already lazy-loaded
       settings = {
+        markdown = {
+          headings.__raw = "require('markview.presets').headings.glow";
+        };
         preview = {
           callbacks.on_enable.__raw = ''
             function(_, win)
@@ -34,7 +37,6 @@
           ignore_buftypes = [ ];
           linewise_hybrid_mode = true;
           hybrid_modes = [
-
             "i"
             "n"
           ];
