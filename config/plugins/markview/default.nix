@@ -25,6 +25,17 @@
       settings = {
         markdown = {
           headings.__raw = "require('markview.presets').headings.glow";
+          code_blocks = {
+            default = {
+              block_hl = "";
+            };
+            border_hl = "";
+          };
+          metadata_minus = {
+            hl = "";
+            border_top = "";
+            border_bottom = "";
+          };
         };
         preview = {
           callbacks.on_enable.__raw = ''
