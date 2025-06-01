@@ -32,7 +32,9 @@
             end
           '';
           ignore_buftypes = [ ];
+          linewise_hybrid_mode = true;
           hybrid_modes = [
+
             "i"
             "n"
           ];
@@ -51,6 +53,19 @@
         };
       };
     };
+  };
+  extraFiles = lib.mkIf config.plugins.markview.enable {
+    "queries/markdown/folds.scm".text = ''
+      ; Folds a section of the document
+      ; that starts with a heading.
+      ((section
+          (atx_heading)) @fold
+          (#trim! @fold))
+
+      ; (#trim!) is used to prevent empty
+      ; lines at the end of the section
+      ; from being folded.
+    '';
   };
   keymaps = lib.mkIf config.plugins.markview.enable [
     {
