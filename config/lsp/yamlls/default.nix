@@ -2,7 +2,14 @@
   lsp.servers.yamlls = {
     enable = true;
     settings = {
-      yaml = {
+      settings = {
+        redhat = {
+          telemetry = {
+            enabled = false;
+          };
+        };
+      };
+      settings.yaml = {
         customTags = [
           "!And scalar"
           "!And mapping"
