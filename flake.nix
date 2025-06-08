@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
     treefmt-nix.url = "github:numtide/treefmt-nix";
+    mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
 
     snacks-nvim = {
       url = "github:folke/snacks.nvim";
