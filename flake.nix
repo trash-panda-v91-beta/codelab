@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
     treefmt-nix.url = "github:numtide/treefmt-nix";
+    mcp-hub.url = "github:ravitemer/mcp-hub";
     mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
 
     snacks-nvim = {
@@ -60,7 +61,14 @@
           nixvimModule = {
             inherit system;
             module = import ./config;
-            extraSpecialArgs = { inherit inputs self helpers; };
+            extraSpecialArgs = {
+              inherit
+                inputs
+                self
+                helpers
+                system
+                ;
+            };
           };
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in
