@@ -1,7 +1,7 @@
 { config, lib, ... }:
 {
   plugins.zk = {
-    enable = true;
+    enable = false;
     settings = {
       lsp = {
         auto_attach = {
