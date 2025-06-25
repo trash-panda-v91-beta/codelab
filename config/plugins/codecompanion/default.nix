@@ -2,7 +2,6 @@
   config,
   helpers,
   lib,
-  pkgs,
   ...
 }:
 let
@@ -11,8 +10,7 @@ in
 {
   imports = [
     ./lualine.nix
-    (import ./prompts.nix { inherit lib pkgs; })
-    ./tools.nix
+    ./prompts.nix
   ];
   plugins = {
     codecompanion = {

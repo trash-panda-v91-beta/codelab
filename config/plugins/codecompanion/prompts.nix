@@ -1,4 +1,3 @@
-{ lib, pkgs }:
 {
   plugins.codecompanion.settings.prompt_library = {
     "Smart Paste" = {
@@ -128,52 +127,6 @@
                  ]],
                 vim.fn.system("git diff --merge-base " .. target_branch)
               )
-            end
-          '';
-        }
-      ];
-    };
-    "Make asset" = {
-      strategy = "chat";
-      description = "Create note for my asset";
-      opts = {
-        auto_submit = true;
-        user_prompt = false;
-      };
-      prompts = [
-        {
-          role = "user";
-          content.__raw = ''
-            function()
-              local note = vim.fn.system('${lib.getExe pkgs.zk} new')
-              local template = 'make following fields in frontmatter (replace example values):\n\n'
-                .. '```yaml\n'
-                .. 'title: "Apple TV 4K"\n'
-                .. 'model: "Apple TV 4K (3rd generation)"\n'
-                .. 'status: "active"  # active, inactive, stored, loaned, maintenance, backup, deprecated, broken, warranty-claim, sold, donated, disposed, lost, stolen, returned\n\n'
-                .. 'purchase:\n'
-                .. '  date: 2025-01-16\n'
-                .. '  price: 4 595 CZK\n'
-                .. '  vendor:\n'
-                .. '    name: "Alza"\n'
-                .. '  order_id: 534584506\n\n'
-                .. 'manufacturer:\n'
-                .. '  name: "Apple"\n'
-                .. 'serial_number: null\n\n'
-                .. 'warranty:\n'
-                .. '  expires: 2027-01-16\n'
-                .. '  documents: null\n\n'
-                .. 'location: "living room"\n\n'
-                .. 'tags:\n'
-                .. '  - asset\n'
-                .. '  - electronics\n'
-                .. '  - entertainment\n'
-                .. '```\n\n'
-
-              local task = 'You are an expert notes writer.\n'
-                .. 'Your task is to help the user create well-structured note to track their assets.\n\n'
-                .. note
-                return template .. task
             end
           '';
         }
