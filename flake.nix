@@ -30,6 +30,9 @@
         "aarch64-darwin"
       ];
       forAllSystems = fn: nixpkgs.lib.genAttrs systems fn;
+      nixpkgsConfig = {
+        allowUnfree = true;
+      };
       treefmtEval = forAllSystems (
         system: treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
       );
@@ -61,6 +64,10 @@
           nixvimModule = {
             inherit system;
             module = import ./config;
+            pkgs = import nixpkgs {
+              inherit system;
+              config = nixpkgsConfig;
+            };
             extraSpecialArgs = {
               inherit
                 inputs

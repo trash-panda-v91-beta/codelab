@@ -2,6 +2,7 @@
   config,
   helpers,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -30,6 +31,17 @@ in
                   	},
                   })
                 '';
+          };
+          tavily = {
+            __raw = ''
+              function()
+                return require("codecompanion.adapters").extend("tavily", {
+                  env = {
+                    api_key = 'cmd:${lib.getExe pkgs._1password-cli} read "op://Private/op4p2ok4buizqra3jssnnoet3u/credential" --no-newline',
+                  },
+                })
+               end                   
+            '';
           };
         };
         display = {
