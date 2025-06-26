@@ -1,5 +1,5 @@
 {
   plugins.hmts = {
-    enable = true;
+    enable = false;
   };
 }
