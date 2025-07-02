@@ -12,6 +12,10 @@
       url = "github:folke/snacks.nvim";
       flake = false;
     };
+    obsidian-nvim = {
+      url = "github:trash-panda-v91-beta/obsidian.nvim/update-get-plugin-info";
+      flake = false;
+    };
   };
 
   outputs =

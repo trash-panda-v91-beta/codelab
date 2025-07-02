@@ -1,11 +1,23 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+{
+  extraPlugins = [ pkgs.vimPlugins.plenary-nvim ];
   plugins = {
     obsidian = {
       enable = true;
+
+      package = pkgs.callPackage ../../../packages/obsidian-nvim {
+        inherit inputs;
+      };
       settings = {
         completion = {
           blink = true;
+          nvim_cmp = false;
         };
         daily_notes = {
           template = "day.md";
@@ -19,7 +31,7 @@
           name = "snacks.pick";
         };
         templates = {
-          subdir = ".templates";
+          subdir = "templates";
         };
         workspaces = [
           {
