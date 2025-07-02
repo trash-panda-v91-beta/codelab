@@ -1,7 +1,7 @@
 {
   plugins = {
     smear-cursor = {
-      enable = true;
+      enable = false;
     };
   };
 }
