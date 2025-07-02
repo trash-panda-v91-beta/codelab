@@ -35,7 +35,7 @@
           cmdline = {
             completion = {
               list.selection = {
-                preselect = true;
+                preselect = false;
               };
               menu.auto_show = true;
             };
