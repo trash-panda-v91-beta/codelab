@@ -26,6 +26,11 @@
         follow_url_func.__raw = ''
           vim.fn.jobstart({ "open", url })
         '';
+        note_id_func.__raw = ''
+          function(title)
+            return os.date("%Y%m%d%H%M%S")
+          end
+        '';
         new_notes_location = "notes_subdir";
         picker = {
           name = "snacks.pick";
