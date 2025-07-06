@@ -13,6 +13,9 @@ in
     ./lualine.nix
     ./prompts.nix
   ];
+  extraPlugins = [
+    pkgs.vimPlugins.codecompanion-history-nvim
+  ];
   plugins = {
     codecompanion = {
       enable = true;
@@ -53,6 +56,14 @@ in
             window = {
               layout = "horizontal";
               height = 0.5;
+            };
+          };
+        };
+        extensions = {
+          history = {
+            enabled = true;
+            opts = {
+              picker = "snacks";
             };
           };
         };
