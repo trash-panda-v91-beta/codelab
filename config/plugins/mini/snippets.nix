@@ -1,5 +1,8 @@
 { config, lib, ... }:
 {
+  extraFiles = {
+    "snippets/markdown.json".source = ./snippets/markdown.json;
+  };
   plugins.mini.modules.snippets = {
     snippets = {
       __unkeyed-1.__raw = lib.mkIf config.plugins.friendly-snippets.enable ''
