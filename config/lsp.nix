@@ -1,6 +1,8 @@
 {
   config,
+  inputs,
   lib,
+  system,
   ...
 }:
 let
@@ -33,7 +35,10 @@ in
           ];
         };
       };
-      bashls.enable = true;
+      bashls = {
+        enable = true;
+        package = inputs.nixpkgs-master.legacyPackages.${system}.bash-language-server;
+      };
       biome.enable = true;
       cmake.enable = true;
       dockerls.enable = true;
