@@ -10,7 +10,7 @@
       "title: ${1:Task Title}",
       "status: open",
       "---",
-      "${1:Task Title}"
+      "# ${1:Task Title}"
     ],
     "description": "Frontmatter for a Markdown task note"
   }
