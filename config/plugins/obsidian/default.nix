@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -10,10 +9,6 @@
   plugins = {
     obsidian = {
       enable = true;
-
-      package = pkgs.callPackage ../../../packages/obsidian-nvim {
-        inherit inputs;
-      };
       settings = {
         completion = {
           blink = true;
