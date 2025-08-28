@@ -6,13 +6,12 @@
     };
   };
 
-  keymaps = lib.mkIf config.plugins.markview.enable [
+  keymaps = lib.mkIf config.plugins.neogit.enable [
     {
       mode = [
         "n"
-        "i"
       ];
-      key = "<leader>gn";
+      key = "<leader>gg";
       action = "<cmd>Neogit<cr>";
       options = {
         desc = "Open Neogit";

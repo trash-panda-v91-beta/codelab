@@ -10,7 +10,7 @@
   keymaps = [
     {
       mode = "n";
-      key = "<leader>gg";
+      key = "<leader>gl";
       action = ":lua Snacks.lazygit.open()<CR>";
       options = {
         desc = "Open LazyGit";

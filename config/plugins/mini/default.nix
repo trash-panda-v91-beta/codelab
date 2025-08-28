@@ -7,7 +7,7 @@
 
   imports = [
     ./ai.nix
-    ./diff.nix
+    # ./diff.nix
     ./files.nix
     ./snippets.nix
     ./surround.nix
