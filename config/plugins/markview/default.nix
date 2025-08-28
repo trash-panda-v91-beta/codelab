@@ -2,7 +2,7 @@
 {
   plugins = {
     markview = {
-      enable = true;
+      enable = false;
       luaConfig.post = ''
         require("markview.extras.checkboxes").setup({
         	default = "X",
