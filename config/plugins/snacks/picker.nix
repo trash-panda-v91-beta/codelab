@@ -390,30 +390,6 @@
         }
         {
           mode = "n";
-          key = "<leader>gs";
-          action = ''<cmd>lua Snacks.picker.git_status()<cr>'';
-          options = {
-            desc = "Find git status";
-          };
-        }
-        {
-          mode = "n";
-          key = "<leader>gS";
-          action = ''<cmd>lua Snacks.picker.git_stash()<cr>'';
-          options = {
-            desc = "Find git stashes";
-          };
-        }
-        {
-          mode = "n";
-          key = "<leader>gl";
-          action = ''<cmd>lua Snacks.picker.git_log()<cr>'';
-          options = {
-            desc = "Git Log";
-          };
-        }
-        {
-          mode = "n";
           key = "<leader>gL";
           action = ''<cmd>lua Snacks.picker.git_log_line()<cr>'';
           options = {

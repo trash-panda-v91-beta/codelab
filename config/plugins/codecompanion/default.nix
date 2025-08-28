@@ -1,12 +1,16 @@
 {
   config,
   helpers,
+  inputs,
   lib,
   pkgs,
   ...
 }:
 let
   inherit (config) aiProvider;
+  gitcommitExtension = pkgs.callPackage ../../../packages/codecompanion-gitcommit-nvim {
+    inherit inputs;
+  };
 in
 {
   imports = [
@@ -15,6 +19,7 @@ in
   ];
   extraPlugins = [
     pkgs.vimPlugins.codecompanion-history-nvim
+    gitcommitExtension
   ];
   plugins = {
     codecompanion = {
@@ -60,6 +65,9 @@ in
           };
         };
         extensions = {
+          gitcommit = {
+            callback = "codecompanion._extensions.gitcommit";
+          };
           history = {
             enabled = true;
             opts = {

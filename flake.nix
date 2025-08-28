@@ -7,7 +7,10 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     mcp-hub.url = "github:ravitemer/mcp-hub";
     mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
-
+    codecompanion-gitcommit-nvim = {
+      url = "github:jinzhongjia/codecompanion-gitcommit.nvim";
+      flake = false;
+    };
     snacks-nvim = {
       url = "github:folke/snacks.nvim";
       flake = false;
