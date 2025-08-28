@@ -50,7 +50,7 @@ in
         display = {
           enabled = true;
           diff = {
-            provider = "mini_diff";
+            provider = "inline";
           };
           chat = {
             window = {
