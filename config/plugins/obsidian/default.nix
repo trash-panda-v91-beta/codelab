@@ -15,16 +15,14 @@
           nvim_cmp = false;
         };
         daily_notes = {
-          template = "day.md";
+          folder = "journal";
+          default_tags = [ "day" ];
+          date_format = "%Y/%m/%Y-%m-%d";
+          alias_format = "%B %-d, %Y";
         };
         disable_frontmatter = true;
         follow_url_func.__raw = ''
           vim.fn.jobstart({ "open", url })
-        '';
-        note_id_func.__raw = ''
-          function(title)
-            return os.date("%Y%m%d%H%M%S")
-          end
         '';
         new_notes_location = "notes_subdir";
         picker = {
@@ -69,6 +67,15 @@
       options = {
         silent = true;
         desc = "Create new note";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>nf";
+      action = "<Cmd>ObsidianFollowLink<CR>";
+      options = {
+        silent = true;
+        desc = "Follow link under cursor";
       };
     }
   ];
