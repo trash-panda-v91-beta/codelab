@@ -67,6 +67,9 @@ in
         extensions = {
           gitcommit = {
             callback = "codecompanion._extensions.gitcommit";
+            opts = {
+              languages = [ "English" ];
+            };
           };
           history = {
             enabled = true;
