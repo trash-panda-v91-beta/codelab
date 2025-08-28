@@ -20,11 +20,26 @@
           date_format = "%Y/%m/%Y-%m-%d";
           alias_format = "%B %-d, %Y";
         };
-        disable_frontmatter = true;
+        disable_frontmatter = false;
         follow_url_func.__raw = ''
           vim.fn.jobstart({ "open", url })
         '';
         new_notes_location = "notes_subdir";
+        note_frontmatter_func.__raw = ''
+          function(note)
+            if note.title then
+              note:add_alias(note.title)
+            end
+            local out = { id = note.id, aliases = note.aliases, tags = note.tags, title = note.title }
+            if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+              for k, v in pairs(note.metadata) do
+                out[k] = v
+              end
+            end
+            return out
+          end
+        '';
+        legacy_commands = false;
         picker = {
           name = "snacks.pick";
         };
@@ -72,7 +87,7 @@
     {
       mode = "n";
       key = "<leader>nf";
-      action = "<Cmd>ObsidianFollowLink<CR>";
+      action = "<Cmd>Obsidian follow_link<CR>";
       options = {
         silent = true;
         desc = "Follow link under cursor";
