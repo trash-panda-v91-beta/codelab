@@ -7,11 +7,16 @@
         "codecompanion"
       ];
       settings = {
-        render_modes = true;
+        completions = {
+          blink = {
+            enabled = true;
+          };
+        };
         file_types = [
           "markdown"
           "codecompanion"
         ];
+        render_modes = true;
       };
     };
   };
