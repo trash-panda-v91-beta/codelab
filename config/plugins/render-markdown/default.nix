@@ -8,7 +8,7 @@
       ];
       settings = {
         completions = {
-          blink = {
+          lsp = {
             enabled = true;
           };
         };

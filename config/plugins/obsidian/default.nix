@@ -11,8 +11,8 @@
       enable = true;
       settings = {
         completion = {
+          min_chars = 2;
           blink = true;
-          nvim_cmp = false;
         };
         daily_notes = {
           folder = "journal";
