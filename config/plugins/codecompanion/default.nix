@@ -80,6 +80,65 @@ in
                 };
               };
             };
+            slash_commands = {
+              search_notes = {
+                description = "search notes";
+                callback.__raw = ''
+                  function(chat)
+                    local picker = require("snacks.picker")
+                    picker.pick(nil, {
+                    source = "grep",
+                    prompt = "Search notes: ",
+                    confirm = function(_, selection)
+                      if selection and selection.file then
+                        local filepath = selection.file
+
+                        local file = io.open(filepath, "r")
+                        if not file then
+                          vim.notify("Could not open file: " .. filepath, vim.log.levels.ERROR)
+                          return
+                        end
+
+                        local content = file:read("*all")
+                        file:close()
+
+                        local ft = vim.filetype.match({ filename = filepath }) or ""
+
+                        local relative_path = vim.fn.fnamemodify(filepath, ":.")
+                        local id = "<file>" .. relative_path .. "</file>"
+                        local formatted_content = string.format(
+                          [[<attachment filepath="%s">Here is the content from the file:
+
+                        ```%s
+                        %s
+                        ```
+                        </attachment>]],
+                          relative_path, ft, content
+                        )
+                        chat:add_message({
+                          role = require("codecompanion.config").constants.USER_ROLE,
+                          content = formatted_content
+                        }, { context_id = id, visible = false })
+
+                        chat.context:add({
+                          id = id,
+                          path = filepath,
+                          source = "codecompanion.strategies.chat.slash_commands.search_notes"
+                        })
+                        vim.notify("Added file: " .. relative_path, vim.log.levels.INFO)
+                      else
+                        vim.notify("Selection object: " .. vim.inspect(selection), vim.log.levels.WARN)
+                        vim.api.nvim_out_write(vim.inspect(selection))
+                      end
+                    end,
+                  })
+                  end
+                '';
+                opts = {
+                  containes_code = false;
+                };
+              };
+            };
           };
           inline = {
             adapter = aiProvider.name;
